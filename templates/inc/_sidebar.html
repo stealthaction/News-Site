@@ -1,0 +1,14 @@
+{% load news_tags %} <!-- Импортирование библиотеки из папки templatetext, файл news_tags.py -->
+
+{% comment %}
+<div class="list-group"> <!-- 2 разных способа вывода списка категорий. Этот первый -->
+    {%get_categories  as categories %}
+    {% for item_cat in categories %}
+        <a href="{% url 'cat' item_cat.pk %}" class="list-group-item list-group-item-action">{{ item_cat.title }}</a>
+    {% endfor %}
+</div>
+
+<br>
+{% endcomment %} # тег комментария
+
+{% show_categories %} <!-- Второй способ . Мы обратились к тегу из файла news_tags и создали список категорий -->
